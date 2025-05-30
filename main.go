@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bluebell/controller"
 	"bluebell/dao/mysql"
 	"bluebell/dao/redis"
 	"bluebell/logger"
@@ -13,6 +14,7 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
+		fmt.Println("Args: ", os.Args)
 		fmt.Println("Usage: go run main.go config.yaml")
 		return
 	}
@@ -41,6 +43,12 @@ func main() {
 
 	if err := snowflake.Init(settings.Conf.StartTime, settings.Conf.MachineID); err != nil {
 		fmt.Printf("Init snowflake failed, err:%v\n", err)
+		return
+	}
+
+	// 初始化gin框架内置的校验器使用的翻译器
+	if err := controller.InitTrans("zh"); err != nil {
+		fmt.Printf("Init validator trans failed, err:%v\n", err)
 		return
 	}
 

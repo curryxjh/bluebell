@@ -58,7 +58,6 @@ func Init(filePath string) (err error) {
 
 	if err := viper.Unmarshal(Conf); err != nil {
 		fmt.Printf("viper.Unmarshal failed, err:%v\n", err)
-		return
 	}
 
 	viper.WatchConfig()

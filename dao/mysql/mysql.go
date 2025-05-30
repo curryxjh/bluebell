@@ -15,7 +15,7 @@ func Init(cfg *settings.MySQLConfig) (err error) {
 		cfg.User,
 		cfg.Password,
 		cfg.Host,
-		cfg.Password,
+		cfg.Port,
 		cfg.DB,
 	)
 	db, err = sqlx.Connect("mysql", dsn)
