@@ -12,6 +12,15 @@ import (
 	"os"
 )
 
+// @title bluebell项目接口文档
+// @version 1.0
+// @description Go web开发进阶项目实战课程bluebell
+
+// @contact.name xjh
+// @contact.url www.xxx.com
+
+// @host 127.0.0.1:8084
+// @BasePath /api/v1
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Args: ", os.Args)

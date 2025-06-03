@@ -1,3 +1,7 @@
 *.log
 *.yaml
 tmp/*
+*.drawio
+static/*
+templates/*
+docs/*
