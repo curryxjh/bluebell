@@ -13,6 +13,7 @@ require (
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/go-sql-driver/mysql v1.9.2
 	github.com/jmoiron/sqlx v1.4.0
+	github.com/juju/ratelimit v1.0.2
 	github.com/spf13/viper v1.20.1
 	github.com/stretchr/testify v1.10.0
 	github.com/swaggo/files v1.0.1

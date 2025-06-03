@@ -2,12 +2,12 @@ package router
 
 import (
 	"bluebell/controller"
+	_ "bluebell/docs"
 	"bluebell/logger"
 	"bluebell/middlewares"
 	"github.com/gin-gonic/gin"
-	ginSwagger "github.com/swaggo/gin-swagger" // gin-swagger middleware
 	"github.com/swaggo/files"                  // swagger embed files
-	_ "bluebell/docs"
+	ginSwagger "github.com/swaggo/gin-swagger" // gin-swagger middleware
 	"net/http"
 )
 
@@ -27,6 +27,7 @@ func SetupRouter(mode string) *gin.Engine {
 		c.String(http.StatusOK, "pong")
 	})
 
+	//r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler), middlewares.RateLimitMiddleware(2*time.Second, 1))
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// 注册路由
