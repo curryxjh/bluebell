@@ -16,17 +16,17 @@ log:
   max_backups: 7
 
 mysql:
-  host: mysql:latest
-  port: "3306"
+  host: 0.0.0.0
+  port: "3308"
   user: "root"
-  password: "xjh021022.gg"
+  password: "root1234"
   dbname: "bluebell"
   max_open_conns: 200
   max_idle_conns: 50
 
 redis:
-  hose: redis:latest
-  port: "6379"
+  hose: 0.0.0.0
+  port: "26379"
   password: ""
   db: 0
   pool_size: 100

@@ -35,11 +35,15 @@ func SetupRouter(mode string) *gin.Engine {
 
 	v1.POST("/signup", controller.SignUpHandler)
 	v1.POST("/login", controller.LoginHandler)
+	// 注意：具体的路由要放在动态路由前面，避免被匹配
 	v1.GET("/community", controller.CommunityHandler)
+	v1.GET("/community/list", controller.CommunityListWithMembersHandler)
 	v1.GET("/community/:id", controller.CommunityDetailHandler)
-	v1.GET("/post/:id", controller.GetPostDetailHandler)
 	v1.GET("/posts", controller.GetPostListHandler)
 	v1.GET("/posts2", controller.GetPostListHandler2)
+	v1.GET("/post/:id", controller.GetPostDetailHandler)
+	// 评论相关（公开接口）
+	v1.GET("/comments/:id", controller.GetCommentsByPostIDHandler)
 
 	v1.Use(middlewares.JWTAuthMiddleware())
 
@@ -47,6 +51,15 @@ func SetupRouter(mode string) *gin.Engine {
 		v1.POST("/post", controller.CreatePostHandler)
 
 		v1.POST("/vote", controller.PostVoteController)
+
+		// 社区相关接口
+		v1.POST("/community/join", controller.JoinCommunityHandler)
+		v1.POST("/community/leave", controller.LeaveCommunityHandler)
+		v1.GET("/community/user", controller.GetUserCommunitiesHandler)
+
+		// 评论相关接口（需要登录）
+		v1.POST("/comment", controller.CreateCommentHandler)
+		v1.DELETE("/comment/:id", controller.DeleteCommentHandler)
 	}
 	r.NoRoute(func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{

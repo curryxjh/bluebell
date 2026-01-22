@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.1.1">
+  <diagram name="第 1 页" id="6xBq2wLORM8cvrssZcyJ">
+    <mxGraphModel dx="1426" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="d_kx4iWzaqB7PlxxBP_S-1" value="ZSet：bluebell:post:time" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="80" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kx4iWzaqB7PlxxBP_S-2" value="ZSet：bluebell:post:score" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="80" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kx4iWzaqB7PlxxBP_S-3" value="ZSet：bluebell:post:voted:id" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="520" y="80" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kx4iWzaqB7PlxxBP_S-4" value="Set：bluebell:community:" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="280" y="320" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kx4iWzaqB7PlxxBP_S-5" value="score: time.now().unix()&lt;div&gt;Member: postID&lt;/div&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="180" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kx4iWzaqB7PlxxBP_S-6" value="score: time.now().unix()&lt;div&gt;Member: postID&lt;/div&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="280" y="180" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d_kx4iWzaqB7PlxxBP_S-7" value="key: bluebell:community:community_id&lt;div&gt;member: postID&lt;/div&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="256" y="420" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hW0obWhs8oE5QzGJIly5-1" value="score: 投票类型&lt;div&gt;Member: postID&lt;/div&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="520" y="180" width="180" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

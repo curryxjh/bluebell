@@ -37,10 +37,14 @@ func GetPostVoteData(ids []string) (data []int64, err error) {
 	if err != nil {
 		return nil, err
 	}
-	data = make([]int64, len(cmders))
-	for _, cmder := range cmders {
+	data = make([]int64, 0, len(cmders))
+	for idx, cmder := range cmders {
 		v := cmder.(*redis.IntCmd).Val()
 		data = append(data, v)
+		// 添加调试日志
+		if idx < 5 { // 只打印前5条
+			println("Post vote data - id:", ids[idx], "votes:", v)
+		}
 	}
 	return
 }

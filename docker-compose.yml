@@ -10,16 +10,16 @@ services:
       MYSQL_DATABASE: "bluebell"
       MYSQL_PASSWORD: "root1234"
     volumes:
-      - ./init/sql:/data/application/init.sql
+      - ./init.sql:/data/application/init.sql
   redis507:
     image: "redis:5.0.7"
     ports:
       - "26379:6379"
-  bluebell_app:
-    build: .
-    command: sh -c "./wait-for.sh mysql8019:3306 redis507:6379 -- ./bludbell ./conf/config.yaml"
-    depends_on:
-      - mysql8019
-      - redis507
-    ports:
-      - "8888:8084"
+#  bluebell_app:
+#    build: .
+#    command: sh -c "./wait-for.sh mysql8019:3306 redis507:6379 -- ./bludbell ./conf/config.yaml"
+#    depends_on:
+#      - mysql8019
+#      - redis507
+#    ports:
+#      - "8888:8084"

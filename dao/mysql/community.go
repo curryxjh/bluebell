@@ -13,10 +13,32 @@ func GetCommunityList() (communityList []*models.Community, err error) {
 		if err == sql.ErrNoRows {
 			zap.L().Warn("no community found")
 			err = nil
-
 		}
 	}
 	return
+}
+
+// GetCommunityListWithMemberCount 获取社区列表（包含成员数量）
+func GetCommunityListWithMemberCount() ([]*models.CommunityWithMembers, error) {
+	sqlStr := `
+		SELECT 
+			c.community_id, 
+			c.community_name,
+			COUNT(DISTINCT uc.user_id) as member_count
+		FROM community c
+		LEFT JOIN user_community uc ON c.community_id = uc.community_id
+		GROUP BY c.community_id, c.community_name
+		ORDER BY member_count DESC
+	`
+	var communityList []*models.CommunityWithMembers
+	if err := db.Select(&communityList, sqlStr); err != nil {
+		if err == sql.ErrNoRows {
+			zap.L().Warn("no community found")
+			return []*models.CommunityWithMembers{}, nil
+		}
+		return nil, err
+	}
+	return communityList, nil
 }
 
 func GetCommunityDetailByID(id int64) (community *models.CommunityDetail, err error) {

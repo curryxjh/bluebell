@@ -2,6 +2,6 @@
 *.yaml
 tmp/*
 *.drawio
-static/*
-templates/*
+/static/*
+/templates/*
 docs/*
